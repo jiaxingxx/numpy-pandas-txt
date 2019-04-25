@@ -1,1 +1,3 @@
 np.genfromtxt()
+
+gbk编码为简体汉字，尽量声明都为encoding=u'utf-8'
