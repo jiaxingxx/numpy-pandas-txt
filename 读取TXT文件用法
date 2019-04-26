@@ -1,3 +1,4 @@
+1.读取txt文件某一列，pandas只能将整个txt文件读到内存里，chunk用法可以将大文件分成小块，但是无法读单独某列
 np.genfromtxt()
 
 gbk编码为简体汉字，尽量声明都为encoding=u'utf-8'
