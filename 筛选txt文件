@@ -4,3 +4,6 @@
 record2=record[record['FAULT_CODE'].isin(fault_list)]
 
 2.merge
+result = pd.merge(left, right, how='inner', on=['key1', 'key2'])
+
+
