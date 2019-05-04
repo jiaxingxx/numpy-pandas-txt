@@ -5,5 +5,6 @@ record2=record[record['FAULT_CODE'].isin(fault_list)]
 
 2.merge
 result = pd.merge(left, right, how='inner', on=['key1', 'key2'])
+![image]https://github.com/jiaxingxx/numpy-pandas-txt/blob/master/merging_merge_on_key_inner.png
 
 
