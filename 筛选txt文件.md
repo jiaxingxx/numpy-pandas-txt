@@ -36,3 +36,18 @@ df4 = df4.dropna(subset=['age', 'body','home.dest'])
 5.对pandas重置index从0到n
 df = df.reset_index(drop=True)
 
+6.在做文本分析的时候，修改一个DataFrame的column名称，总结如下： 
+数据如下：
+
+方法一：暴力方法
+>>>a.columns = ['a','b','c']
+>>>a
+   a  b  c
+0  1  4  7
+1  2  5  8
+2  3  6  9
+但是缺点是必须写三个，要不报错。
+
+方法二：较好的方法
+>>>a.rename(columns={'A':'a', 'B':'b', 'C':'c'}, inplace = True)
+
