@@ -13,3 +13,24 @@ result = pd.merge(left, right, how='inner', on=['key1', 'key2'])
 当采用outer外连接时，会取并集，并用NaN填充。
 外连接其实左连接和右连接的并集。左连接是左侧DataFrame取全部数据，右侧DataFrame匹配左侧DataFrame。（右连接right和左连接类似）
 
+4.import pandas as pd
+
+# 删除含有空数据的全部行
+
+df4 = pd.read_csv('4.csv',  encoding='utf-8')
+
+df4 = df4.dropna()
+
+# 可以通过axis参数来删除含有空数据的全部列
+
+df4 = df4.dropna(axis=1)
+
+# 可以通过subset参数来删除在age和sex中含有空数据的全部行
+
+df4 = df4.dropna(subset=["age", "sex"])
+
+print(df4)
+
+df4 = df4.dropna(subset=['age', 'body','home.dest'])
+
+
