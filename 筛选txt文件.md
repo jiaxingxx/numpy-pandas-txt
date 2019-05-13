@@ -33,4 +33,6 @@ print(df4)
 
 df4 = df4.dropna(subset=['age', 'body','home.dest'])
 
+5.对pandas重置index从0到n
+df = df.reset_index(drop=True)
 
