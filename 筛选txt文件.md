@@ -6,6 +6,15 @@
 
 record2=record[record['FAULT_CODE'].isin(fault_list)]
 
+
+单列数据筛选并排序
+我们使用.loc对lc数据表中grade列为B值的数据条目进行了筛选操作，具体的代码和筛选结果如下。
+在代码中lc.loc[]是.loc函数的语法，lc[“grade”] == “B”是具体的筛选条件。由于数据表较大，
+因此在最后使用了head()函数只显示前5行筛选结果。从筛选结果来看grade列的值都为B。
+
+lc.loc[lc["grade"] == "B"]
+
+
 2.merge
 result = pd.merge(left, right, how='inner', on=['key1', 'key2'])
 ![image](https://github.com/jiaxingxx/numpy-pandas-txt/blob/master/merging_merge_on_key_inner.png)
