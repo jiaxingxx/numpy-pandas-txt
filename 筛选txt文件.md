@@ -56,4 +56,16 @@ df = df.reset_index(drop=True)
 方法二：较好的方法
 >>>a.rename(columns={'A':'a', 'B':'b', 'C':'c'}, inplace = True)
 
-7.
+7. 去除重复行方法
+DataFrame.drop_duplicates(subset=None, keep='first', inplace=False)
+
+参数
+这个drop_duplicate方法是对DataFrame格式的数据，去除特定列下面的重复行。返回DataFrame格式的数据。
+
+subset : column label or sequence of labels, optional 
+用来指定特定的列，默认所有列
+keep : {‘first’, ‘last’, False}, default ‘first’ 
+删除重复项并保留第一次出现的项
+inplace : boolean, default False 
+是直接在原来数据上修改还是保留一个副本，默认保留副本
+
