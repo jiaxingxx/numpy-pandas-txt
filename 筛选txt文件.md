@@ -1,6 +1,9 @@
 1.从记录中选出所有fault_code列的值在fault_list= [487, 479, 500, 505]这个范围内的记录
+
 要筛选的值一定是储存在list中，在dataframe中会返回空值
+
 例如：
+
 record2=record[record['FAULT_CODE'].isin(fault_list)]
 
 2.merge
@@ -33,7 +36,9 @@ print(df4)
 
 df4 = df4.dropna(subset=['age', 'body','home.dest'])
 
+
 5.对pandas重置index从0到n
+
 df = df.reset_index(drop=True)
 
 6.在做文本分析的时候，修改一个DataFrame的column名称，总结如下： 
@@ -51,3 +56,4 @@ df = df.reset_index(drop=True)
 方法二：较好的方法
 >>>a.rename(columns={'A':'a', 'B':'b', 'C':'c'}, inplace = True)
 
+7.
