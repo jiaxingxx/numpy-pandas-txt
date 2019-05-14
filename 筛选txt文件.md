@@ -9,7 +9,7 @@ result = pd.merge(left, right, how='inner', on=['key1', 'key2'])
 
 3.pd.merge()方法设置连接方法。
 主要包括inner（内连接）、outer（外链接）、left（左连接）、right（右连接）。
-参数how默认值是inner内连接，上面的都是采用内连接，连接两边都有的值。
+参数how默认值是inner内连接，上面的都是采用内连接，连接两边都有的值。on选择两个共有的列，列名相同
 当采用outer外连接时，会取并集，并用NaN填充。
 外连接其实左连接和右连接的并集。左连接是左侧DataFrame取全部数据，右侧DataFrame匹配左侧DataFrame。（右连接right和左连接类似）
 
