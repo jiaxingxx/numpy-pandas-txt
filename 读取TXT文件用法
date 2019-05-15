@@ -5,3 +5,14 @@ gbk编码为简体汉字，尽量声明都为encoding=u'utf-8'
 
 2.pandas读取某几列
 data = pd.read_csv('data.csv',usecols=[0,1,2])
+
+
+3.分块读取
+
+reader=pd.read_table('D:/Dataset/NEW_MAG/PaperReferences.txt',chunksize=1000000,
+                              header=None)
+
+for chunk in reader:
+    chunk.columns = ['paid', 'rid']
+    result=pd.merge(top100paperid,chunk,how='left',on=['rid'])
+    result.to_csv('D:/LJX/top100paid_citaionpaid.csv',index=False,header=False,mode='a')
