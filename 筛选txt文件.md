@@ -82,3 +82,31 @@ keep : {‘first’, ‘last’, False}, default ‘first’
 inplace : boolean, default False 
 是直接在原来数据上修改还是保留一个副本，默认保留副本
 
+
+
+8.# 实例2.3：要连接多个键，传递的DataFrame必须具有MultiIndex：
+ 
+left = pd.DataFrame({'key1': ['K0', 'K0', 'K1', 'K2'], 'key2': ['K0', 'K1', 'K0', 'K1'],
+                                  'A': ['A0', 'A1', 'A2', 'A3'],'B': ['B0', 'B1', 'B2', 'B3']})
+index = pd.MultiIndex.from_tuples([('K0', 'K0'), ('K1', 'K0'), ('K2', 'K0'), ('K2', 'K1')])
+right = pd.DataFrame({'C': ['C0', 'C1', 'C2', 'C3'], 'D': ['D0', 'D1', 'D2', 'D3']}, index=index)
+    
+result = left.join(right, on=['key1', 'key2'])#等价下面
+result = pd.merge(left, right, left_on=['key1','key2'], right_index=True,how='left', sort=False)
+    
+# left                   right                     result
+  key1 key2   A   B              C   D          A   B key1 key2    C   D
+0   K0   K0  A0  B0      K0 K0  C0  D0      0  A0  B0   K0   K0   C0   D0
+1   K0   K1  A1  B1      K1 K0  C1  D1      1  A1  B1   K0   K1  NaN   NaN
+2   K1   K0  A2  B2      K2 K0  C2  D2      2  A2  B2   K1   K0   C1   D1
+3   K2   K1  A3  B3         K1  C3  D3      3  A3  B3   K2   K1   C3   D3
+    
+result = left.join(right, on=['key1', 'key2'], how='inner')#等价下面
+result = pd.merge(left, right, left_on=['key1','key2'],right_index=True,how='inner', sort=False)
+    
+# left                   right              result
+  key1 key2   A   B              C   D         A   B key1 key2   C   D
+0   K0   K0  A0  B0      K0 K0  C0  D0      0  A0  B0   K0   K0  C0  D0
+1   K0   K1  A1  B1      K1 K0  C1  D1      2  A2  B2   K1   K0  C1  D1
+2   K1   K0  A2  B2      K2 K0  C2  D2      3  A3  B3   K2   K1  C3  D3
+3   K2   K1  A3  B3         K1  C3  D3
