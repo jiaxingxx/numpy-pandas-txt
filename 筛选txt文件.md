@@ -6,6 +6,9 @@
 
 record2=record[record['FAULT_CODE'].isin(fault_list)]
 
+当然，有时候我们需要去掉不止一个值，这个时候只需要在isin([]）的列表中添加。
+更具体来说，例如，对于appID这个属性，我们想去掉appID=278和appID=382的样本。
+df[(True-df['appID'].isin([278,382]))]
 
 单列数据筛选并排序
 我们使用.loc对lc数据表中grade列为B值的数据条目进行了筛选操作，具体的代码和筛选结果如下。
