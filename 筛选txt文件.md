@@ -117,3 +117,19 @@ result = pd.merge(left, right, left_on=['key1','key2'],right_index=True,how='inn
 1   K0   K1  A1  B1      K1 K0  C1  D1      2  A2  B2   K1   K0  C1  D1
 2   K1   K0  A2  B2      K2 K0  C2  D2      3  A3  B3   K2   K1  C3  D3
 3   K2   K1  A3  B3         K1  C3  D3
+
+
+
+9. 删除drop用法
+
+labels参数
+
+DataFrame.drop()中的参数labels是要删除的行或者列的名字，删除行还是列由参数axis控制，axis默认为0即按行删除，要想删除列只需令axis=1。
+
+df.drop(['V'],axis=1)
+
+index参数
+
+对于参数index，这个参数只能传入行的名字即它是专为按行删除设置的，axis的值不影响index，axis的值只在给labels传入参数时起作用。
+
+df.drop(index = 'a',axis = 1)
