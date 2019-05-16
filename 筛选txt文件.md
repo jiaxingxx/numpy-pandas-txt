@@ -28,6 +28,8 @@ result = pd.merge(left, right, how='inner', on=['key1', 'key2'])
 当采用outer外连接时，会取并集，并用NaN填充。
 外连接其实左连接和右连接的并集。左连接是左侧DataFrame取全部数据，右侧DataFrame匹配左侧DataFrame。（右连接right和左连接类似）
 **merge时要求数据类型相同，可以A=pd.Dataframe(A,dtype=np.float)进行统一
+**设置
+ a.merge(b, how="left").set_index(a.index)
 
 4.import pandas as pd
 
