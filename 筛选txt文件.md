@@ -22,6 +22,11 @@ lc.loc[lc["grade"] == "B"]
 result = pd.merge(left, right, how='inner', on=['key1', 'key2'])
 ![image](https://github.com/jiaxingxx/numpy-pandas-txt/blob/master/merging_merge_on_key_inner.png)
 
+merge 的时候保留原来的index
+
+result=left.reset_index().merge(right,left_on='A',right_on='C').set_index('index')
+
+
 3.pd.merge()方法设置连接方法。
 主要包括inner（内连接）、outer（外链接）、left（左连接）、right（右连接）。
 参数how默认值是inner内连接，上面的都是采用内连接，连接两边都有的值。on选择两个共有的列，列名相同
