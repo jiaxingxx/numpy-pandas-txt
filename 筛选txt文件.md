@@ -133,3 +133,5 @@ index参数
 对于参数index，这个参数只能传入行的名字即它是专为按行删除设置的，axis的值不影响index，axis的值只在给labels传入参数时起作用。
 
 df.drop(index = 'a',axis = 1)
+
+(http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html)
