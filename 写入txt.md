@@ -8,3 +8,5 @@ to_csv()方法mode默认为w，我们加上mode='a'，便可以追加写入数�
 2.python保存numpy数据：
 
 numpy.savetxt("result.txt", numpy_data)
+
+分隔符为空格
