@@ -3,3 +3,8 @@
 df.to_csv('my_csv.csv', mode='a', header=False)
 
 to_csv()方法mode默认为w，我们加上mode='a'，便可以追加写入数据。
+
+
+2.python保存numpy数据：
+
+numpy.savetxt("result.txt", numpy_data)
